@@ -1,50 +1,31 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, Button, StyleSheet, StatusBar } from 'react-native';
+import { useTheme } from '@react-navigation/native';
 
-const HomeScreen = ({ navigation }) => {
-  console.log('hhhhhhhh')
-  return (
-    <View style={styles.screenContainer}>
-      <Text style={styles.title}>Home Screen</Text>
-      <Pressable
-        style={styles.buttonStyle}
-        onPress={() => navigation.navigate('Details')}>
-        <Text style={styles.buttonTextStyle}>Go To Detail Screen</Text>
-      </Pressable>
-    </View>
-  );
+const HomeScreen = ({navigation}) => {
+
+  const { colors } = useTheme();
+
+  const theme = useTheme();
+  
+    return (
+      <View style={styles.container}>
+        <StatusBar barStyle= { theme.dark ? "light-content" : "dark-content" }/>
+        <Text style={{color: colors.text}}>Home Screen</Text>
+      <Button
+        title="Go to details screen"
+        onPress={() => navigation.navigate("Details")}
+      />
+      </View>
+    );
 };
 
+export default HomeScreen;
+
 const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 32,
-  },
-  buttonStyle: {
-    height: 54,
-    width: '80%',
-    marginTop: 32,
-    borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#2EE59D',
-    shadowRadius: 5,
-    shadowOpacity: 0.7,
-    shadowColor: 'rgba(46, 229, 157, 0.5)',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-  },
-  buttonTextStyle: {
-    color: '#fdfdfd',
-    fontWeight: '700',
+  container: {
+    flex: 1, 
+    alignItems: 'center', 
+    justifyContent: 'center'
   },
 });
-
-export default HomeScreen;

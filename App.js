@@ -7,12 +7,11 @@
  */
 
 import React from 'react';
-import type { Node } from 'react';
-import { SafeAreaView, useColorScheme } from 'react-native';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import type {Node} from 'react';
+import {SafeAreaView, useColorScheme} from 'react-native';
+import {View, Text, StyleSheet, Pressable} from 'react-native';
 
-
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import RootNavigator from './App/navigation/RootNavigator';
 
 const App: () => Node = () => {
@@ -22,9 +21,7 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return (
-    <RootNavigator />
-  );
+  return <RootNavigator />;
 };
 
 const styles = StyleSheet.create({
